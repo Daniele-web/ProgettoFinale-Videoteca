@@ -1,0 +1,70 @@
+services:
+  mdb_service:
+    #build:
+    #  context: .
+    #  dockerfile: mongo_dockerfile
+    image: "mongo:latest"
+    container_name: mdb_service
+    restart: always
+    #ports:
+    #  - "27017:27017"
+    expose:
+      - 27017
+    volumes:
+      - mdb_data:/data/db
+    #environment:
+    #  # nel caso si vogliano usare le funzioni di auth di mongodb
+    #  # per semplicità al momento tengo così
+    #  #MONGO_INITDB_ROOT_USERNAME: Djan
+    #  #MONGO_INITDB_ROOT_PASSWORD: 12345678
+    #  #MONGO_INITDB_DATABASE: raccoon_dealer
+    #  #MONGO_NEW_USERNAME: Djan
+    #  #MONGO_NEW_PASSWORD: 12345678
+
+  server:
+    build:
+      context: .
+      dockerfile: dockerfile
+    image: raccoon-dealer:latest
+    container_name: raccoon_dealer_container
+    external_links:
+      - mdb_service:mongodb
+    ports:
+      - "3005:3005"
+    expose:
+      - 3005
+    depends_on:
+      - mdb_service
+    volumes:
+      - frontend_files:/raccoon-dealer
+      - node_server_files:/server
+    environment:
+      PORT: 3005
+      DBNAME: raccoon_dealer
+      DBPORT: 27017
+      DEMODE: 1
+      REACT_APP_API_DOMAIN: http://127.0.0.1:3005/api
+      #DBUSER: Djan
+      #DBPSW: 12345678
+
+volumes:
+  mdb_data:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./mdb_data
+      o: bind
+
+  node_server_files:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./node
+      o: bind
+
+  frontend_files:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./frontend
+      o: bind
