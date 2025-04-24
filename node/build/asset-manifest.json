@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/static/css/main.5e590949.css",
+    "main.js": "/static/js/main.d9ce84c7.js",
+    "static/js/453.d3d326d3.chunk.js": "/static/js/453.d3d326d3.chunk.js",
+    "static/media/raccoonDidNotFoundAnything.jpg": "/static/media/raccoonDidNotFoundAnything.f38d0586f4616c4f6670.jpg",
+    "static/media/bootstrap-icons.woff?": "/static/media/bootstrap-icons.39795c0b4513de014cf8.woff",
+    "static/media/bootstrap-icons.woff2?": "/static/media/bootstrap-icons.b7bcc075b395c14ce8c2.woff2",
+    "static/media/raccoonDealerIcon.jpg": "/static/media/raccoonDealerIcon.9fe0b14127f844c5484e.jpg",
+    "static/media/surprised-raccoon.jpg": "/static/media/surprised-raccoon.88e666bb1bbf8031fe41.jpg",
+    "static/media/thankyou-raccoon.jpg": "/static/media/thankyou-raccoon.1a9e6aa15ecb55f9c711.jpg",
+    "index.html": "/index.html",
+    "main.5e590949.css.map": "/static/css/main.5e590949.css.map",
+    "main.d9ce84c7.js.map": "/static/js/main.d9ce84c7.js.map",
+    "453.d3d326d3.chunk.js.map": "/static/js/453.d3d326d3.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.5e590949.css",
+    "static/js/main.d9ce84c7.js"
+  ]
+}
